@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Internationaal Griekenland 2025</title>
+
+  <!-- Leaflet & MarkerCluster -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <!-- Model Viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <!-- Icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #222;
+      --accent: #004080;
+      --card: white;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --accent: #88c0ff;
+      --card: #1f1f1f;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    header img.logo {
+      height: 50px;
+      background: white;
+      border-radius: 8px;
+      padding: 5px;
+      margin: 0 10px;
+    }
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .intro img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+    #map {
+      width: 100%;
+      height: 500px;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .model-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .model-card {
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+    .model-card:hover {
+      transform: translateY(-5px);
+    }
+    .model-card h3 {
+      background: var(--accent);
+      color: white;
+      margin: 0;
+      padding: 0.8rem;
+      font-size: 1.1rem;
+    }
+    model-viewer {
+      width: 100%;
+      height: 200px;
+      background: #eef2f5;
+    }
+    footer {
+      background: var(--accent);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+    }
+    .tip {
+      text-align: center;
+      margin: 2rem 0;
+      font-style: italic;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Project Internationaal Griekenland 2025</h1>
+    <p>Camiel Clarysse, Stef Vander Linden, Siebe Naessens, Wout Bailleul</p>
+    <img src="hogent_logo.png" alt="HoGent" class="logo">
+    <img src="heritage_logo.png" alt="HERITAGE" class="logo">
+  </header>
+
+  <main>
+    <div class="intro">
+      <p>Welkom op onze projectwebsite!</p>
+      <P>Tijdens onze internationale ervaring in Griekenland hebben we verschillende locaties opgemeten en omgezet in interactieve 3D-modellen.</p>
+      <img src="groepsfoto.jpg" alt="Groepsfoto" />
+    </div>
+
+    <div class="tip">
+      📍 Klik op een locatie op de kaart om deze in 3D te bekijken.
+    </div>
+
+    <div id="map"></div>
+
+    <h2 style="text-align:center;">3D Modellen</h2>
+    <div class="model-gallery">
+      <div class="model-card"><a href="model1.html"><model-viewer src="model1_vallei.glb" camera-controls auto-rotate></model-viewer><h3>Model 1 – Vallei</h3></a></div>
+      <div class="model-card"><a href="model2.html"><model-viewer src="model2_lange-wandeling-kerk.glb" camera-controls auto-rotate></model-viewer><h3>Model 2 – Kerk Ruïne</h3></a></div>
+      <div class="model-card"><a href="model3.html"><model-viewer src="model3_groot-treinviaduct.glb" camera-controls auto-rotate></model-viewer><h3>Model 3 – Treinviaduct</h3></a></div>
+      <div class="model-card"><a href="model4.html"><model-viewer src="model4_middel-treinviaduct.glb" camera-controls auto-rotate></model-viewer><h3>Model 4 – Treiniaduct</h3></a></div>
+      <div class="model-card"><a href="model5.html"><model-viewer src="model5_brug.glb" camera-controls auto-rotate></model-viewer><h3>Model 5 - Brug</h3></a></div>
+      <div class="model-card"><a href="model6.html"><model-viewer src="model6_kerk-kloof.glb" camera-controls auto-rotate></model-viewer><h3>Model 6 - Kerk In Kloof</h3></a></div>
+      <div class="model-card"><a href="model7.html"><model-viewer src="model7_klein-onderwater.glb" camera-controls auto-rotate></model-viewer><h3>Model 7 – Onderwater Ruïne</h3></a></div>
+      <div class="model-card"><a href="model8.html"><model-viewer src="model8_kerk1-vrije-dag.glb" camera-controls auto-rotate></model-viewer><h3>Model 8 – Kerk</h3></a></div>
+      <div class="model-card"><a href="model9.html"><model-viewer src="model9_kerk2-vrije-dag.glb" camera-controls auto-rotate></model-viewer><h3>Model 9 – Kerk</h3></a></div>
+      <div class="model-card"><a href="model10.html"><model-viewer src="model10_klooster.glb" camera-controls auto-rotate></model-viewer><h3>Model 10 – Klooster</h3></a></div>
+      <div class="model-card"><a href="model11.html"><model-viewer src="model11_acropolis.glb" camera-controls auto-rotate></model-viewer><h3>Model 11 – Acropolis Ruïne</h3></a></div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Camiel, Stef, Siebe & Wout – Griekenland Project<br/>
+    
+
+  <script>
+    const modellen = [
+      { naam: "1", titel: "Vallei", coords: [37.528840, 22.831345], link: "model1.html" },
+      { naam: "2", titel: "Kerk Ruïne", coords: [37.479892, 23.062791], link: "model2.html" },
+      { naam: "3", titel: "Treinviaduct", coords: [37.463210, 22.564241], link: "model3.html" },
+      { naam: "4", titel: "Rreinviaduct", coords: [37.442825, 22.554090], link: "model4.html" },
+      { naam: "5", titel: "Brug", coords: [37.436918, 22.547372], link: "model5.html" },
+      { naam: "6", titel: "Kerk In Kloof", coords: [37.540761, 22.829697], link: "model6.html" },
+      { naam: "7", titel: "Onderwater Ruïne", coords: [37.625679, 23.157768], link: "model7.html" },
+      { naam: "8", titel: "Kerk", coords: [37.616663, 23.028192], link: "model8.html" },
+      { naam: "9", titel: "Kerk", coords: [37.571703, 22.899799], link: "model9.html" },
+      { naam: "10", titel: "Klooster", coords: [37.805215, 22.662037], link: "model10.html" },
+      { naam: "11", titel: "Acropolis Ruïne", coords: [37.605826, 22.968466], link: "model11.html" }
+    ];
+
+    const map = L.map('map').setView([37.462989, 22.564333], 8);
+    const standaard = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png').addTo(map);
+    const satelliet = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}');
+
+    modellen.forEach(m => {
+      const marker = L.marker(m.coords).addTo(map);
+      marker.bindTooltip(`Model ${m.naam}: ${m.titel}`);
+      marker.on('click', () => {
+        map.flyTo(m.coords, 18, { animate: true, duration: 1.5 });
+        setTimeout(() => {
+          satelliet.addTo(map);
+        }, 1500);
+        setTimeout(() => {
+          window.location.href = m.link;
+        }, 3500);
+      });
+    });
+  </script>
+</body>
+</html>
