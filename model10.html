@@ -9,6 +9,25 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
+
+    .coordinates-button {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.coordinates-button:hover {
+  background-color: #e0e0e0;
+  text-decoration: none;
+}
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -61,5 +80,10 @@
     auto-rotate 
     camera-controls>
   </model-viewer>
+
+  <!-- Handmatige coördinaten met Google Maps link -->
+<a href="https://www.google.com/maps?q=37.805215,22.662037" target="_blank" class="coordinates-button">
+  📍 37°48'18.77" N, 22°39'43.33" E
+</a>
 </body>
 </html>
